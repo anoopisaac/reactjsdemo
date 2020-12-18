@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import { state } from './state'
+export class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: state.squares
+    };
+    this.hello = this.hello.bind(this);
+    window['board'] = this;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  }
+  hello() {
+    console.log('in hello');
+    state.squares[0] = 10;
+    this.setState({ squares: state.squares })
+  }
+  render() {
+    console.log('werwere')
+    return (
+      <div>
+        <div >
+          {this.state.squares.map((item, index) => (
+            <span className='indent' key={index}>{item}</span>
+          ))}
+        </div>
+        <button onClick={this.hello}>werwe</button>
+      </div>
+
+    );
+  }
 }
 
-export default App;
+// export default App;
