@@ -1,36 +1,35 @@
 import './App.css';
 import React from 'react'
 import { state } from './state'
-export class Board extends React.Component {
+export class Bed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: state.squares
+      diamonds: state.diamonds
     };
     this.hello = this.hello.bind(this);
     window['board'] = this;
 
   }
   shouldComponentUpdate(nextProps) {
-    console.log('updated insurance')
+    console.log('updated hai comp', nextProps)
     this.state = {
-      squares: state.squares
+      squares: state.diamonds
     };
     return true;
     // return nextProps.changedProp !== this.state.changedProp;
   }
   hello() {
     console.log('in hello');
-    state.squares[0] = 10;
-    state.name = Math.random();
-    this.setState({ squares: state.squares })
+    state.diamonds[0] = 10;
+    this.setState({ diamonds: state.diamonds })
   }
   render() {
-    console.log('werwere', this.props.name)
+    console.log('werwere')
     return (
       <div>
         <div >
-          {this.state.squares.map((item, index) => (
+          {this.state.diamonds.map((item, index) => (
             <span className='indent' key={index}>{item}</span>
           ))}
         </div>

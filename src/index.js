@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Board } from './App';
+import { Bed } from './Hai';
+import { state } from "./state";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Board />
+    <Board name={state.name} />
+    <Bed name={state.name} />
   </React.StrictMode>,
   document.getElementById('root')
 );
